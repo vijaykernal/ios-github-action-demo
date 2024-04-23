@@ -13,6 +13,8 @@
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
 
+#ENV['GOOGLE_APPLICATION_CREDENTIALS']='/Users/vijaychaudhary/Downloads/topacts-c5a63-firebase-adminsdk-ma6o0-584fc946e7.json',
+
 default_platform(:ios)
 
 platform :ios do
@@ -28,8 +30,22 @@ platform :ios do
         }
       )
       firebase_app_distribution(
-        app: "1:470852662413:ios:0865f6c69c6d5e3e7e9ec4"
-        firebase_cli_token:ENV['GOOGLE_APPLICATION_CREDENTIALS']
+        app: "1:470852662413:ios:0865f6c69c6d5e3e7e9ec4",
+        firebase_cli_token:"1//0go1yLo3mDg-zCgYIARAAGBASNwF-L9Ir8qrgRcMoL3TxsqOsxDun-Sw4Q5BWsPk26k9deMMI1l5go6Y3efRY5uqhSdwlmX5uZA8",
       )
   end
+
+  lane :get_firebase_cli_token do
+    ENV['GOOGLE_APPLICATION_CREDENTIALS']='/Users/vijaychaudhary/Downloads/topacts-c5a63-firebase-adminsdk-ma6o0-584fc946e7.json'
+    
+    firebase_cli_token = sh("firebase login:ci --no-localhost", log: true).strip
+    # UI.success("Firebase CLI Token: #{firebase_cli_token}")
+    # Use firebase_cli_token as needed in subsequent Fastlane actions or scripts
+    if firebase_cli_token.empty?
+      UI.error("Failed to get Firebase CLI token")
+    else
+      UI.success("Firebase CLI Token: #{firebase_cli_token}")
+    end
+  end
+
 end
