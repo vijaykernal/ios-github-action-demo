@@ -11,7 +11,7 @@ permissions:
 env:
   IPA_NAME: "Demo-Staging.ipa"
   APP_NAME: "Demo App - Staging"
-  IOS_APP_BUILD_LINK: "https://appdistribution.firebase.google.com/testerapps/1:470852662413:ios:0865f6c69c6d5e3e7e9ec4"
+  FIREBASE_DISTRIBUTION_LINK: "https://appdistribution.firebase.google.com/testerapps"
 
 jobs:
   deploy-ios:
@@ -99,7 +99,7 @@ jobs:
         with:
           app-name: ${{ env.APP_NAME }}
           app-platform: 'iOS'
-          app-build-link: ${{ env.IOS_APP_BUILD_LINK }}
+          app-build-link: '${{ env.FIREBASE_DISTRIBUTION_LINK }}/${{ vars.FIREBASE_STAGING_IOS_APP_ID }}'
           google-chat-webhook: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
           version-name: ${{ needs.deploy-ios.outputs.version-name }}
           skip-tag: true
