@@ -49,7 +49,7 @@ jobs:
         id: ios-version
         shell: bash
         run: |
-          echo "VERSION_NAME=$(xcodebuild -target Runner -configuration "Release-TopActs[STG]" -showBuildSettings  | grep -i 'MARKETING_VERSION' | sed 's/[ ]*MARKETING_VERSION = //')" >> $GITHUB_OUTPUT
+          echo "VERSION_NAME=$(xcodebuild -target ios-github-action-demo -showBuildSettings  | grep -i 'MARKETING_VERSION' | sed 's/[ ]*MARKETING_VERSION = //')" >> $GITHUB_OUTPUT
           
 
   # Required because of https://github.com/wzieba/Firebase-Distribution-Github-Action/issues/24
