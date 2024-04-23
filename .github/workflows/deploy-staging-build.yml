@@ -49,7 +49,6 @@ jobs:
         id: ios-version
         shell: bash
         run: |
-          cd android
           echo "VERSION_NAME=$(xcodebuild -target Runner -configuration "Release-TopActs[STG]" -showBuildSettings  | grep -i 'MARKETING_VERSION' | sed 's/[ ]*MARKETING_VERSION = //')" >> $GITHUB_OUTPUT
           
 
