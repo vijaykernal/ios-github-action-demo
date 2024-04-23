@@ -33,7 +33,7 @@ jobs:
 
       - name: Build Staging IPA
         run: |
-          - run: fastlane develop
+          fastlane develop
 
       - name: Rename IPA File
         run: mv *.ipa ${{ env.IPA_NAME }}
