@@ -27,5 +27,9 @@ platform :ios do
           }
         }
       )
+      firebase_app_distribution(
+        app: "1:470852662413:ios:0865f6c69c6d5e3e7e9ec4"
+        firebase_cli_token:ENV['GOOGLE_APPLICATION_CREDENTIALS']
+      )
   end
 end
