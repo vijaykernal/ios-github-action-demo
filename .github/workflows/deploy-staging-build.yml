@@ -45,14 +45,6 @@ jobs:
           path: ${{ env.IPA_NAME }}
           compression-level: 0 # no compression
 
-      - name: Upload IPA artifact to Firebase App Distribution
-        uses: ./.github/actions/firebase-distribution
-        with:
-          app-build-file-path: ${{ env.IPA_NAME }}
-          download-build: 'false'
-          firebase-app-id: ${{ vars.FIREBASE_STAGING_IOS_APP_ID }}
-          firebase-credentials: ${{ secrets.FIREBASE_CREDENTIALS }}
-
       - name: Retrieve version name
         id: ios-version
         shell: bash
