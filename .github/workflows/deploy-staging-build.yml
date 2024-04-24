@@ -33,6 +33,7 @@ jobs:
 
       - name: Build Staging IPA
         run: |
+          echo -n "${{ secrets.FIREBASE_CREDENTIALS }}" | base64 --decode --output 'firebase_credentials.json'
           fastlane develop
 
       - name: Rename IPA File

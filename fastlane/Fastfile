@@ -30,8 +30,12 @@ platform :ios do
         }
       )
       firebase_app_distribution(
-        app: "1:470852662413:ios:0865f6c69c6d5e3e7e9ec4",
-        firebase_cli_token:"1//0go1yLo3mDg-zCgYIARAAGBASNwF-L9Ir8qrgRcMoL3TxsqOsxDun-Sw4Q5BWsPk26k9deMMI1l5go6Y3efRY5uqhSdwlmX5uZA8",
+        app: "1:1090731515040:ios:d483616e0d5f32b640bdc5",
+        service_credentials_file:"firebase_credentials.json",
+        testers: "vijay.chaudhary@kernelequity.com",
+        release_notes: "Resolve the issue",
+
+
       )
   end
 
