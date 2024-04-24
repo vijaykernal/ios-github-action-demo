@@ -13,12 +13,14 @@ env:
   APP_NAME: "Demo App - Staging"
   FIREBASE_DISTRIBUTION_LINK: "https://appdistribution.firebase.google.com/testerapps"
 
-environment: dev
+
 
 jobs:
   deploy-ios:
     runs-on: macos-latest
     timeout-minutes: 30
+    env:
+      ENV_VARIABLE: "dev"
     outputs:
       version-name: ${{ steps.ios-version.outputs.VERSION_NAME }}
     steps:
