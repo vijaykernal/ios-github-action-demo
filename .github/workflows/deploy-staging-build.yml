@@ -56,21 +56,21 @@ jobs:
           
 
   # Required because of https://github.com/wzieba/Firebase-Distribution-Github-Action/issues/24
-  firebase-distribution:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    needs: [ deploy-ios ]
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+  # firebase-distribution:
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 30
+  #   needs: [ deploy-ios ]
+  #   steps:
+  #     - name: Checkout Repo
+  #       uses: actions/checkout@v4
 
-      - name: Upload IPA artifact to Firebase App Distribution
-        uses: ./.github/actions/firebase-distribution
-        with:
-          app-build-file-path: ${{ env.IPA_NAME }}
-          download-build: 'true'
-          firebase-app-id: ${{ vars.FIREBASE_STAGING_IOS_APP_ID }}
-          firebase-credentials: ${{ secrets.FIREBASE_CREDENTIALS }}
+  #     - name: Upload IPA artifact to Firebase App Distribution
+  #       uses: ./.github/actions/firebase-distribution
+  #       with:
+  #         app-build-file-path: ${{ env.IPA_NAME }}
+  #         download-build: 'true'
+  #         firebase-app-id: ${{ vars.FIREBASE_STAGING_IOS_APP_ID }}
+  #         firebase-credentials: ${{ secrets.FIREBASE_CREDENTIALS }}
 
   create-tag:
     runs-on: ubuntu-latest
