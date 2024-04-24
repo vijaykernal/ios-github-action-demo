@@ -19,8 +19,6 @@ jobs:
   deploy-ios:
     runs-on: macos-latest
     timeout-minutes: 30
-    env:
-      ENV_VARIABLE: "Dev"
     outputs:
       version-name: ${{ steps.ios-version.outputs.VERSION_NAME }}
     steps:
