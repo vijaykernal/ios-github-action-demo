@@ -97,7 +97,7 @@ jobs:
           create-tag: 'true'
           create-release: 'false'
           echo " Current Version : ${{ needs.deploy-ios.outputs.version-name }} "
-          version-name: ${{ needs.deploy-ios.outputs.version-name + 0.1 }}
+          version-name: ${{ needs.deploy-ios.outputs.version-name}}
 
       - name: Notify release on google chat
         uses: ./.github/actions/notify-google-chat
