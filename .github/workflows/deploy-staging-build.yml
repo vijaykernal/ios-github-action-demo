@@ -82,8 +82,8 @@ jobs:
         - name: Upload Plist
           uses: actions/upload-artifact@v2
           with:
-          name: ${{ env.PLIST_NAME }}
-          path: /Users/vijaychaudhary/Desktop/VIjay_Projects/Comapass/CompassiPhoneApp/CompassiPhoneApp/Resouces/info.plist
+            name: ${{ env.PLIST_NAME }}
+            path: "/Users/vijaychaudhary/Desktop/VIjay_Projects/Comapass/CompassiPhoneApp/CompassiPhoneApp/Resouces/info.plist"
 
 
   create-tag:
