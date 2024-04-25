@@ -96,7 +96,8 @@ jobs:
           app-name: 'Demo'
           create-tag: 'true'
           create-release: 'false'
-          version-name: ${{ needs.deploy-ios.outputs.version-name }}
+          echo ${{ needs.deploy-ios.outputs.version-name }}
+          version-name: ${{ needs.deploy-ios.outputs.version-name + 0.1 }}
 
       - name: Notify release on google chat
         uses: ./.github/actions/notify-google-chat
