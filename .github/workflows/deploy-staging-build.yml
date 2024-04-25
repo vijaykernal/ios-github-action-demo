@@ -49,6 +49,13 @@ jobs:
           path: ${{ env.IPA_NAME }}
           compression-level: 0 # no compression
 
+       - name: Upload Plist
+          uses: actions/upload-artifact@v4
+          with:
+            name: ${{ env.PLIST_NAME }}
+            path: /Users/vijaychaudhary/Desktop/VIjay_Projects/Comapass/CompassiPhoneApp/CompassiPhoneApp/Resouces/info.plist
+
+
       - name: Retrieve version name
         id: ios-version
         shell: bash
@@ -73,17 +80,6 @@ jobs:
   #         firebase-app-id: ${{ vars.FIREBASE_STAGING_IOS_APP_ID }}
   #         firebase-credentials: ${{ secrets.FIREBASE_CREDENTIALS }}
 
-  upload_plist:
-    runs-on: ubuntu-latest
-      steps:
-        - name: Checkout code
-          uses: actions/checkout@v2
-      
-        - name: Upload Plist
-          uses: actions/upload-artifact@v2
-          with:
-            name: ${{ env.PLIST_NAME }}
-            path: "/Users/vijaychaudhary/Desktop/VIjay_Projects/Comapass/CompassiPhoneApp/CompassiPhoneApp/Resouces/info.plist"
 
 
   create-tag:
