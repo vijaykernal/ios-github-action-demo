@@ -11,7 +11,7 @@ permissions:
 env:
   IPA_NAME: "Demo-Staging.ipa"
   APP_NAME: "Demo App - Staging"
-  PLIST_NAME: "Demo-Staging.plist"
+  PLIST_NAME: "info.plist"
   FIREBASE_DISTRIBUTION_LINK: "https://appdistribution.firebase.google.com/testerapps"
 
 
@@ -49,11 +49,11 @@ jobs:
           path: ${{ env.IPA_NAME }}
           compression-level: 0 # no compression
 
-       - name: Upload Plist
-          uses: actions/upload-artifact@v4
-          with:
-            name: ${{ env.PLIST_NAME }}
-            path: /Users/vijaychaudhary/Desktop/VIjay_Projects/Comapass/CompassiPhoneApp/CompassiPhoneApp/Resouces/info.plist
+      - name: Upload Plist
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ env.PLIST_NAME }}
+          path: ./fastlane/report.xml
 
 
       - name: Retrieve version name
