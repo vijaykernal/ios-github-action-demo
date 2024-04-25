@@ -34,8 +34,6 @@ platform :ios do
         service_credentials_file:"firebase_credentials.json",
         testers: "vijay.chaudhary@kernelequity.com",
         release_notes: "Resolve the issue",
-
-
       )
   end
 

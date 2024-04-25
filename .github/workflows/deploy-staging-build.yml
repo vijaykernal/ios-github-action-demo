@@ -11,6 +11,7 @@ permissions:
 env:
   IPA_NAME: "Demo-Staging.ipa"
   APP_NAME: "Demo App - Staging"
+  PLIST_NAME: "Demo-Staging.plist"
   FIREBASE_DISTRIBUTION_LINK: "https://appdistribution.firebase.google.com/testerapps"
 
 
@@ -71,6 +72,19 @@ jobs:
   #         download-build: 'true'
   #         firebase-app-id: ${{ vars.FIREBASE_STAGING_IOS_APP_ID }}
   #         firebase-credentials: ${{ secrets.FIREBASE_CREDENTIALS }}
+
+  upload_plist:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+      
+        - name: Upload Plist
+          uses: actions/upload-artifact@v2
+          with:
+          name: ${{ env.PLIST_NAME }}
+          path: /Users/vijaychaudhary/Desktop/VIjay_Projects/Comapass/CompassiPhoneApp/CompassiPhoneApp/Resouces/info.plist
+
 
   create-tag:
     runs-on: ubuntu-latest
