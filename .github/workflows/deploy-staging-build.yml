@@ -96,7 +96,7 @@ jobs:
           app-name: 'Demo'
           create-tag: 'true'
           create-release: 'false'
-          echo ${{ needs.deploy-ios.outputs.version-name }}
+          echo " Current Version : ${{ needs.deploy-ios.outputs.version-name }} "
           version-name: ${{ needs.deploy-ios.outputs.version-name + 0.1 }}
 
       - name: Notify release on google chat
